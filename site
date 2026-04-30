@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>F-STORE | STEAM</title>
+    <style>
+        :root {
+            --bg-color: #0b0e14;
+            --card-bg: #151921;
+            --accent-color: #32ff7e; /* Тот самый неоновый салатовый */
+            --text-main: #ffffff;
+            --text-secondary: #8b949e;
+            --glow: 0 0 15px rgba(50, 255, 126, 0.3);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', -apple-system, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Шапка с Фениксом */
+        .header {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(50, 255, 126, 0.1) 0%, rgba(11, 14, 20, 0) 100%);
+            border-bottom: 1px solid #30363d;
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-color);
+            box-shadow: var(--glow);
+            margin-right: 15px;
+            object-fit: cover;
+        }
+
+        .brand-name {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .brand-name span {
+            color: var(--accent-color);
+        }
+
+        /* Основной контент */
+        .container {
+            padding: 20px;
+        }
+
+        .section-title {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* Карточка пополнения Steam */
+        .main-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid #30363d;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            background: #0b0e14;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 12px;
+            color: white;
+            font-size: 16px;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 5px rgba(50, 255, 126, 0.2);
+        }
+
+        .btn-pay {
+            background-color: var(--accent-color);
+            color: #000;
+            width: 100%;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: var(--glow);
+            margin-top: 10px;
+            transition: opacity 0.2s;
+        }
+
+        .btn-pay:active {
+            opacity: 0.8;
+        }
+
+        /* Сетка игр */
+        .game-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .game-item {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 15px;
+            border: 1px solid #30363d;
+            text-align: center;
+        }
+
+        .game-item img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .game-price {
+            color: var(--accent-color);
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .steam-logo-bg {
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            opacity: 0.05;
+            width: 100px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <img src="avatar.png" alt="Fenix" class="avatar">
+        <div class="brand-name">F-<span>STORE</span></div>
+    </div>
+
+    <div class="container">
+        <span class="section-title">Пополнение баланса</span>
+
+        <div class="main-card">
+            <svg class="steam-logo-bg" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm.012 18.06c-3.15 0-5.712-2.55-5.712-5.7 0-3.15 2.562-5.7 5.712-5.7 3.15 0 5.7 2.55 5.7 5.7s-2.55 5.7-5.7 5.7z"/></svg>
+
+            <div class="input-group">
+                <label>Логин Steam</label>
+                <input type="text" placeholder="Введите ваш логин...">
+            </div>
+
+            <div class="input-group">
+                <label>Сумма пополнения (₽)</label>
+                <input type="number" placeholder="Минимум 100 ₽">
+            </div>
+
+            <button class="btn-pay">ПОПОЛНИТЬ БАЛАНС</button>
+        </div>
+
+        <span class="section-title">Хиты этой недели</span>
+
+        <div class="game-grid">
+            <div class="game-item">
+                <div style="font-weight: 600; margin-bottom: 5px;">Minecraft</div>
+                <div class="game-price">1 490 ₽</div>
+            </div>
+            <div class="game-item">
+                <div style="font-weight: 600; margin-bottom: 5px;">Phasmophobia</div>
+                <div class="game-price">549 ₽</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
